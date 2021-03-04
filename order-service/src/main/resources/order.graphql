@@ -1,0 +1,21 @@
+schema {
+ query: Query
+ mutation: Mutation
+}
+
+type Query {
+ order(orderId: Long): Order
+}
+
+type Mutation {
+placeOrder(cartId: Long!, orderTotal: Float): Order
+deleteOrder(orderId: Long!): Long!
+
+}
+
+type Order {
+  
+  orderId: Long
+  cart: String
+  orderTotal: Float
+}

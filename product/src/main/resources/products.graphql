@@ -1,0 +1,36 @@
+schema {
+ query: Query
+ mutation: Mutation
+}
+
+type Query {
+ allProducts: [Product]
+ product(productId: Long): Product
+ cart(cartId: Long): Cart
+ allCarts: [Cart]
+}
+
+type Product {
+  productId: Long
+  productName: String
+  productPrice: Float
+  description: String
+  type: String
+}
+
+
+
+type Cart {
+cartId: Long!,
+cartTotal: Long,
+product: String!,
+
+}
+
+type Mutation {
+createProduct(productId: Long!, productName: String!, productPrice: Float, description: String, type: String): Product
+deleteProduct(productId: Long!): Long!
+deleteAllProducts(productId: Long!): String
+updateProductName(productId: Long! , productName: String!): Product!
+addProductToCart(productId: Long!): Cart
+}

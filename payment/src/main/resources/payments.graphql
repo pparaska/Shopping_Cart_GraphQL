@@ -1,0 +1,21 @@
+schema {
+ query: Query
+  mutation: Mutation
+}
+
+type Query {
+payment(transactionId: Long): Payment
+}
+
+type Payment {
+  transactionId: Long
+  totalPay: Float
+  totalBalance: Float
+  remainingBalance: Float
+  orderDetails: String
+}
+
+type Mutation {
+createPayment(orderId: Long!, totalPay: Float, totalBalance: Float): Payment
+}
+
